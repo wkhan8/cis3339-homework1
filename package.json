@@ -1,0 +1,24 @@
+{
+  "name": "cis3339-homework1",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Student Management System built with Vue 3, Express, and MongoDB",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace client",
+    "start": "node server/src/server.js",
+    "dev": "concurrently --names API,WEB --prefix-colors blue,green \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm run dev --workspace server",
+    "dev:client": "npm run dev --workspace client",
+    "test:api": "node scripts/api-smoke-test.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  }
+}
